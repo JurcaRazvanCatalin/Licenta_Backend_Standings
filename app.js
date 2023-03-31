@@ -9,7 +9,7 @@ const cheerio = require("cheerio");
 require("dotenv").config();
 const app = express();
 mongoose.set("strictQuery", true);
-const PORT = process.env.PORT || 4000;
+const PORT = process.env.PORT;
 
 const createTeam = async (team) => {
   if (
@@ -158,7 +158,7 @@ const scrapeData = async () => {
         }
       }
     }
-    console.log(data);
+    // console.log(data);
     return data;
   } catch (err) {
     console.error(err);
@@ -185,7 +185,7 @@ const startServer = () => {
 };
 
 const database = () => {
-  mongoose.connect("mongodb://localhost:27017", () =>
+  mongoose.connect(process.env.MONGO_URI, () =>
     console.log("Connected to Database")
   );
 };
@@ -199,7 +199,8 @@ const startApp = () => {
   database();
   initRoutes();
 };
-
-// cron.schedule("0/15 * * * * *", main, {});
 main();
+
+cron.schedule("0 1 * * *", main, {});
+
 startApp();
