@@ -65,6 +65,9 @@ const scrapeData = async () => {
               const teamName = $(
                 $($(element).find("td.team")).find("img")
               ).attr("alt");
+              const teamLogo = $(
+                $($(element).find("td.team")).find("img")
+              ).attr("src");
               const smallTeamName = $($(element).find("td.team"))
                 .find("img")
                 .attr("alt")
@@ -88,6 +91,7 @@ const scrapeData = async () => {
                 ranking,
                 teamName,
                 smallTeamName,
+                teamLogo,
                 teamLink,
                 matchesPlayed,
                 winnedMatches,
@@ -122,6 +126,9 @@ const scrapeData = async () => {
               const teamName = $(
                 $($(element).find("td.team")).find("img")
               ).attr("alt");
+              const teamLogo = $(
+                $($(element).find("td.team")).find("img")
+              ).attr("src");
               const smallTeamName = $($(element).find("td.team"))
                 .find("img")
                 .attr("alt")
@@ -145,6 +152,7 @@ const scrapeData = async () => {
                 ranking,
                 teamName,
                 smallTeamName,
+                teamLogo,
                 teamLink,
                 matchesPlayed,
                 winnedMatches,

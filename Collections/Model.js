@@ -17,6 +17,7 @@ const teamSchema = new mongoose.Schema({
   smallTeamName: {
     type: String,
   },
+  teamLogo: { type: String },
   matchesPlayed: {
     type: Number,
   },
